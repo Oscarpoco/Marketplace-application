@@ -23,10 +23,10 @@ aside
 /* ICONS */
 .SideBar-Icons-wrapper
 {
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    background: #c6cacc;
+    background: var(--second-background-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,8 +35,9 @@ aside
 
 .SideBar-Icons
 {
-    color: black;
-    font-size: 1.6em;
+    color: var(--text-color);
+    font-size: 1.8em;
+    font-weight: 900;
 }
 
 

@@ -21,7 +21,7 @@ export default function Products (){
 
                     <div className='item-product'>
 
-                        <img src='https://picsum.photos/200/300' alt='Product 1'/>
+                        <img src='item1.jpeg' alt='Product 1'/>
                         <div className='product-actions'>
                             <h5>Play Station 5</h5>
                             <div className='price'>
@@ -39,7 +39,7 @@ export default function Products (){
 
                     <div className='item-product'>
 
-                        <img src='https://picsum.photos/200/300' alt='Product 1'/>
+                        <img src='item2.jpeg' alt='Product 1'/>
                         <div className='product-actions'>
                             <h5>Play Station 5</h5>
                             <div className='price'>
@@ -57,7 +57,7 @@ export default function Products (){
 
                     <div className='item-product'>
 
-                        <img src='https://picsum.photos/200/300' alt='Product 1'/>
+                        <img src='item3.jpeg' alt='Product 1'/>
                         <div className='product-actions'>
                             <h5>Play Station 5</h5>
                             <div className='price'>
@@ -75,7 +75,7 @@ export default function Products (){
                     
                     <div className='item-product'>
 
-                        <img src='https://picsum.photos/200/300' alt='Product 1'/>
+                        <img src='item4.jpeg' alt='Product 1'/>
                         <div className='product-actions'>
                             <h5>Play Station 5</h5>
                             <div className='price'>

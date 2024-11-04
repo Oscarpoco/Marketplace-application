@@ -1,0 +1,49 @@
+*
+{
+  box-sizing: border-box;
+}
+
+body
+{
+  padding: .7em;
+  background: rgb(231, 228, 228);
+}
+
+.App
+{
+  border-radius: 40px;
+  width: 100%;
+  height: 97vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+}
+
+/* NAVIGATION */
+
+nav
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  /* background: aqua; */
+}
+/* NAV ENDS */
+
+/* MAIN */
+main
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+  gap: 1em;
+  background: #ffffff;
+  padding: .5em;
+}

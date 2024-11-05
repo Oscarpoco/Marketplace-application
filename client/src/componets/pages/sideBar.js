@@ -1,5 +1,11 @@
 import React from 'react';
 
+// REDUX
+import {useDispatch} from 'react-redux';
+
+// COMPONENTS FROM USERINTERFACE ACTIONS
+import { renderBanner, renderLoader } from '../../redux/actions/userInterFaceActions.js';
+
 // STYLING
 import '../styling/SideBar.css';
 
@@ -11,11 +17,28 @@ import { FaCartArrowDown } from "react-icons/fa";
 import { FaRegUserCircle } from "react-icons/fa";
 
 export default function SideBar (){
+
+    // USE DISPATCH
+    const dispatch = useDispatch();
+    // ENDS
+    
+
+    // HANDLE OPENING PRODUCTS
+    const handleCloseProducts = () => {
+        
+        dispatch(renderLoader(true));
+        setTimeout(()=>{
+            dispatch(renderBanner());
+            dispatch(renderLoader(false));
+        }, 3000);
+        }
+    // ENDS
+
   return (
     <div className='SideBar'>
         <aside>
 
-            <div className='SideBar-Icons-wrapper'>
+            <div className='SideBar-Icons-wrapper' onClick={handleCloseProducts}>
                 <TbHomeCheck className='SideBar-Icons'/>
             </div>
 

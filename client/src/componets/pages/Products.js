@@ -1,9 +1,34 @@
 import React from 'react';
 
+// REDUX
+import {useDispatch} from 'react-redux';
+
+// COMPONENTS FROM USERINTERFACE ACTIONS
+import {renderLoader, renderPay } from '../../redux/actions/userInterFaceActions.js';
+
 // STYLING
 import '../styling/ProductGround.css';
 
 export default function Products (){
+
+    // USE DISPATCH
+    const dispatch = useDispatch();
+    // ENDS
+    
+
+    // HANDLE OPENING PRODUCTS
+    const handlePay = () => {
+        
+        dispatch(renderLoader(true));
+        setTimeout(()=>{
+            
+            dispatch(renderPay());
+            dispatch(renderLoader(false));
+        }, 3000);
+        }
+    // ENDS
+
+
   return (
     <div className='Products'>
 
@@ -30,7 +55,7 @@ export default function Products (){
                             </div>
                             <div className='product-buttons'>
                                 <button className='btn-add'><span>+</span> to Cart</button>
-                                <button className='btn-buy'>Buy Now</button>
+                                <button className='btn-buy' onClick={handlePay}>Buy Now</button>
                             </div>
 
                         </div>
@@ -48,7 +73,7 @@ export default function Products (){
                             </div>
                             <div className='product-buttons'>
                                 <button className='btn-add'><span>+</span> to Cart</button>
-                                <button className='btn-buy'>Buy Now</button>
+                                <button className='btn-buy' onClick={handlePay}>Buy Now</button>
                             </div>
 
                         </div>
@@ -66,7 +91,7 @@ export default function Products (){
                             </div>
                             <div className='product-buttons'>
                                 <button className='btn-add'><span>+</span> to Cart</button>
-                                <button className='btn-buy'>Buy Now</button>
+                                <button className='btn-buy' onClick={handlePay}>Buy Now</button>
                             </div>
 
                         </div>
@@ -84,7 +109,7 @@ export default function Products (){
                             </div>
                             <div className='product-buttons'>
                                 <button className='btn-add'><span>+</span> to Cart</button>
-                                <button className='btn-buy'>Buy Now</button>
+                                <button className='btn-buy' onClick={handlePay}>Buy Now</button>
                             </div>
 
                         </div>

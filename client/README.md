@@ -8,6 +8,9 @@ CodeTribe Academy is launching a new online marketplace where users can list and
 ## The link for the project
 https://marketplace-application-nq5k.vercel.app/
 
+## The link for UI/UX
+https://framer.com/projects/Untitled--IcmdVzpOXNdg2VmffVIY-g3RpU
+
 The project is divided into two main parts:
 
 1. **Backend (NodeJS)**: You will build a RESTful API to handle product listing, user authentication, data storage and more.

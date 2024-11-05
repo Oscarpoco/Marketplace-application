@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 
 // REDUX
 import {useDispatch, useSelector} from 'react-redux';
@@ -23,7 +24,20 @@ export default function SideBar (){
     // ENDS
 
     const user = useSelector((state)=> state.auth.authentication);
+
+    // USESTATE
+    const [role, setRole] = useState(null);
+
+    useEffect(() => {
+        const userRole = localStorage.getItem('role'); 
+        if (userRole) {
+            setRole(userRole); 
+        }
+
+    }, []);
     
+    console.log('roler',role)
+
 
     // HANDLE OPENING PRODUCTS
     const handleCloseProducts = () => {
@@ -59,12 +73,14 @@ export default function SideBar (){
                 <CiHeart className='SideBar-Icons'/>
             </div>
 
-            {user && (
-
-                <div className='SideBar-Icons-wrapper'>
-                <RiFunctionAddLine className='SideBar-Icons'/>
-                </div>
-            )}
+                {user && (
+                  
+                       
+                            <div className='SideBar-Icons-wrapper'>
+                                <RiFunctionAddLine className='SideBar-Icons' />
+                            </div>
+                      
+                )}
 
 
             <div className='SideBar-Icons-wrapper' onClick={handleAddToCart}>

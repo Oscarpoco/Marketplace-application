@@ -60,14 +60,16 @@ export const loginUser = (email, password) => async (dispatch) => {
 };
 
 // Sign-Up Action
-export const signUpUser = (email, password) => async (dispatch) => {
+export const signUpUser = (email, password, role) => async (dispatch) => {
     dispatch(signUpRequest());
     try {
-        const response = await axios.post('/api/v1/register', { email, password });
+        const response = await axios.post('http://localhost:9000/api/v1/register', { email, password, role });
         const { token, user } = response.data;
 
         // Store token in local storage
         localStorage.setItem('userToken', token);
+        const userRole = user.role
+        localStorage.setItem('role', userRole);
 
         dispatch(signUpSuccess(token, user));
     } catch (error) {

@@ -104,3 +104,10 @@
     cursor: pointer;
     font-weight: bold;
 }
+
+.floating-btn
+{
+    position: fixed;
+    right: 50px;
+    top: 50px;
+}

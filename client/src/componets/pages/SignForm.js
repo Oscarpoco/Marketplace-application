@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+
+// REDUX
 import { useDispatch, useSelector } from 'react-redux';
 import { renderLoader, renderSign, renderSignUp } from '../../redux/actions/userInterFaceActions.js';
 import { loginUser } from '../../redux/actions/authenticationAction.js';
-// Import your signup action if you have one
-// import { signUpUser } from '../../redux/actions/authenticationAction.js'; 
+import { signUpUser } from '../../redux/actions/authenticationAction.js'; 
 
 // STYLING
 import '../styling/SignInForm.css';
@@ -18,7 +19,9 @@ export default function SignForm() {
     // State for email and password
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isAdmin, setIsAdmin] = useState(false);
 
+    // CLOSE FORM
     const handleCloseForm = () => {
         dispatch(renderLoader(true));
         setTimeout(() => {
@@ -26,22 +29,40 @@ export default function SignForm() {
             dispatch(renderLoader(false));
         }, 3000);
     };
+    // ENDS
 
+    // LOGIN
     const handleLogin = (e) => {
-        e.preventDefault(); 
-        dispatch(loginUser(email, password)); 
-    };
+        dispatch(renderLoader(true));
 
-    const handleSignUp = (e) => {
         e.preventDefault(); 
-        // dispatch(signUpUser(email, password)); 
+        setTimeout(() => {
+            dispatch(loginUser(email, password)); 
+            dispatch(renderSign());
+            dispatch(renderLoader(false));
+        }, 3000);
     };
+    // ENDS
+
+    // SIGN UP
+    const handleSignUp = (e) => {
+        dispatch(renderLoader(true));
+
+        e.preventDefault(); 
+        setTimeout(() => {
+            const role = isAdmin ? 'admin' : 'user';
+            dispatch(signUpUser(email, password, role)); 
+            dispatch(renderSign());
+            dispatch(renderLoader(false));
+        }, 3000);
+    };
+    // ENDS
 
     return (
         <div className='SignForm-layout'>
             <div className='sign-logo'>
                 <div className='company-name' id='company-name'>m<span>Buy</span> <FaOpencart/></div>
-                <div className=''><button className='btn-close' onClick={handleCloseForm}><span>+</span></button></div>
+                <div className='floating-btn'><button className='btn-close' onClick={handleCloseForm}><span>+</span></button></div>
             </div>
 
             <div className='SignForm'>
@@ -71,6 +92,23 @@ export default function SignForm() {
                             onChange={(e) => setPassword(e.target.value)} // Update password state
                         />
                     </div>
+
+                    {signUp && (
+                        <div className='form-group' style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between',gap: '.1em', width: '100%'}}>
+                            <label style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between',gap: '.1em', width: '100%', marginBottom: 0}}>
+
+                                <p style={{width: '100%'}}>As a Seller ?</p>
+                                <input 
+                                    type='checkbox' 
+                                    checked={isAdmin} 
+                                    onChange={() => setIsAdmin(!isAdmin)} 
+                                    style={{margin: 0, padding: 0, cursor: 'pointer'}}
+                                />
+                                
+                            </label>
+                        </div>
+                    )}
+                    
                     <button type='submit' className='sign-btn'>{signUp ? 'Sign Up' : 'Sign In'}</button>
                 </form>
                 <div className='form-footer'>

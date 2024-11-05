@@ -1,10 +1,10 @@
 import React from 'react';
 
 // REDUX
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 // COMPONENTS FROM USERINTERFACE ACTIONS
-import { renderBanner, renderLoader } from '../../redux/actions/userInterFaceActions.js';
+import { renderBanner, renderLoader, renderAddToCart } from '../../redux/actions/userInterFaceActions.js';
 
 // STYLING
 import '../styling/SideBar.css';
@@ -34,6 +34,17 @@ export default function SideBar (){
         }
     // ENDS
 
+    // HANDLE OPENING PRODUCTS
+    const handleAddToCart = () => {
+        
+        dispatch(renderLoader(true));
+        setTimeout(()=>{
+            dispatch(renderAddToCart());
+            dispatch(renderLoader(false));
+        }, 3000);
+        }
+    // ENDS
+
   return (
     <div className='SideBar'>
         <aside>
@@ -50,7 +61,7 @@ export default function SideBar (){
                 <RiFunctionAddLine className='SideBar-Icons'/>
             </div>
 
-            <div className='SideBar-Icons-wrapper'>
+            <div className='SideBar-Icons-wrapper' onClick={handleAddToCart}>
                 <FaCartArrowDown className='SideBar-Icons' style={{color: 'rgb(110, 163, 30)'}}/>
             </div>
 

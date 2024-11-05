@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux';
 import { useState } from 'react';
 
 // COMPONENTS FROM USERINTERFACE ACTIONS
-import { renderLoader } from '../../redux/actions/userInterFaceActions.js';
+import { renderLoader, renderPay } from '../../redux/actions/userInterFaceActions.js';
 
 // STYLING
 import '../styling/Cart.css';
@@ -54,13 +54,16 @@ export default function PayNow (){
                 <p className='price'>Price: R5000</p>
                 <p className='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <div className='quantity-container'>
-                    <button className='btn-quantity' onClick={decrementQuantity}>-</button>
+                    <button className='btn-quantity' onClick={decrementQuantity}><span>-</span></button>
                     <span className='quantity'>{quantity}</span>
-                    <button className='btn-quantity' onClick={incrementQuantity}>+</button>
+                    <button className='btn-quantity' onClick={incrementQuantity}><span>+</span></button>
                 </div>
-                <button className='btn-buy' onClick={handleOpenProducts}>Pay Now</button>
+                <button className='btn-buy' onClick={handleOpenProducts}>Checkout Now</button>
+                <button className='btn-close' onClick={()=> dispatch(renderPay())}><span>+</span></button>
             </div>
         {/* ENDS */}
+
+
         
     </div>
   );

@@ -1,7 +1,7 @@
 import express from "express";
-import { createNewProduct, deleteProduct, updateProduct, getProduct, getAllProduct } from "../Controllers/recipeController.js";
+import { createNewProduct, deleteProduct, updateProduct, getProduct, getAllProduct } from '../controllers/ProductController.js';
 import { LoginUser, createUser, getUsers } from "../controllers/userController.js";
-import { protect } from "../middlewares/authMiddleware.js";
+import { protect} from '../middlewares/authMiddleware.js';
 import { body, validationResult } from 'express-validator';
 
 const router = express.Router();

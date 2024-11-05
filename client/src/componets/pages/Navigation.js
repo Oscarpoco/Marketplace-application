@@ -1,5 +1,8 @@
 import React from 'react';
 
+// REDUX
+import { useSelector } from 'react-redux';
+
 // STYLING
 import '../styling/Navigation.css';
 
@@ -10,6 +13,12 @@ import { RiAlignItemBottomFill } from "react-icons/ri";
 import { SiWantedly } from "react-icons/si";
 
 export default function Navigation (){
+
+    // USE SELECTOR
+    const sign = useSelector((state)=> state.userInterface.sign);
+    // USE SELECTOR ENDS
+
+
   return (
     <div className='Navigator'>
 
@@ -33,6 +42,13 @@ export default function Navigation (){
         {/* SEARCH */}
         <div className='search'>
             <input type='text' placeholder='Search for products'/>
+
+            <div className='sign'>
+
+                <button className='sign-button'>Sign In</button>
+                <button className='sign-button' id='sign-button'>Sign Up</button>
+                
+            </div>
         </div>
         {/* ENDS */}
     </div>

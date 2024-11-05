@@ -34,6 +34,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: 1em;
+    position: relative;
 }
 
 .payment-details h2
@@ -60,40 +61,44 @@
 {
     display: flex;
     align-items: center;
-    gap: 1em;
+    justify-content: center;
+    gap: 1.5em;
 }
 
 .btn-quantity
 {
-    padding: 0.5em 1em;
-    font-size: 1.2em;
-    color: #fff;
-    background-color: var(--primary-color);
+    color: var(--text-color);
+    background: var(--primary-color);
     border: none;
-    border-radius: var(--border-radius);
+    border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-quantity span
+{
+    font-size: 2em;
 }
 
 .btn-quantity:hover
 {
-    background-color: darken(var(--primary-color), 10%);
+    background: darken(var(--primary-color), 10%);
 }
 
 .quantity
 {
     font-size: 1.5em;
-    color: #333;
-    min-width: 30px;
+    color: var(--text-color);
     text-align: center;
 }
 
 .btn-buy
 {
-    padding: 0.75em 1.5em;
-    font-size: 1em;
-    color: #fff;
-    background: var(--secondary-color);
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
@@ -104,4 +109,174 @@
 {
     background: darken(var(--primary-color), 10%);
 }
+
+.btn-close
+{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #ff190092;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-close span
+{
+    transform: rotate(45deg);
+}
+
+.btn-close:hover
+{
+    background-color: #c0392b; /* Darker red on hover */
+    transform: scale(1.1);
+}
+
+
 /* PAY ENDS */
+
+
+/* CART */
+.Cart 
+{
+    width: 100%;
+    height: 100%;
+    padding: 2em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--second-background-color);
+    z-index: 10;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
+}
+
+.Cart h2 
+{
+    margin-bottom: 1em;
+    color: var(--primary-color);
+    font-size: 2em;
+    font-weight: 800;
+}
+
+.cart-items 
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.cart-item 
+{
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 1em;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.cart-item:hover 
+{
+    transform: scale(1.02);
+}
+
+.cart-item-image 
+{
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    margin-right: 1.5em;
+}
+
+.cart-item-details 
+{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+
+.cart-item-details h4 
+{
+    font-size: 1.2em;
+    color: var(--primary-color);
+}
+
+.cart-item-price 
+{
+    color: var(--secondary-color);
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.quantity-controls 
+{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 0.5em;
+}
+
+.quantity 
+{
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.btn-decrease, .btn-increase, .btn-remove, .btn-checkout 
+{
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.4em 1em;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-decrease:hover, .btn-increase:hover, .btn-remove:hover, .btn-checkout:hover 
+{
+    background-color: var(--primary-hover-color);
+}
+
+.btn-remove 
+{
+    margin-left: 1.5em;
+    padding: 0.5em 1.2em;
+}
+
+.cart-summary 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1em;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 2em;
+    font-size: 1.2em;
+    color: var(--secondary-color);
+}
+
+.btn-checkout 
+{
+    padding: 0.7em 1em;
+    font-size: 1.2em;
+    margin-top: 1em;
+    font-weight: bold;
+    border-radius: var(--border-radius);
+    color: var(--text-color);
+}
+

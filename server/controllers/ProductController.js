@@ -1,16 +1,21 @@
-import Product from "../models/Products";
+import Product from "../models/Products.js";
 
 
 // CREATE newProduct
 const createProduct = async (req, res) => {
     try {
-        const newProduct = await Product.create(...req.body, userID = req.user._id);
+        const newProduct = await Product.create({
+            ...req.body,      
+            userID: req.user.id   
+        });
 
         res.status(201).json(newProduct);
     } catch (error) {
         res.status(500).json({ message: "Error creating product: " + error.message });
     }
-}
+};
+// ENDS
+
 // ENDS
 
 
@@ -18,7 +23,7 @@ const createProduct = async (req, res) => {
 const getAllProducts = async (req, res) => {
 
     // DEFAUL TO PAGE 1 AN LIMIT OF 15
-    const { page = 1, limit = 16 } = req.query;
+    const { page = 1, limit = 4 } = req.query;
     // ENDS
 
 

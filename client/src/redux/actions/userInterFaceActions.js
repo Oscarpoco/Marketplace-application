@@ -23,12 +23,41 @@ export const renderLoader = () => {
 
 // ENDS
 
+// PAY
+
 // action type
 export const PAY = 'PAY';
 // action creator
 export const renderPay = () => { 
     return{
         type: PAY,
+    }
+};
+
+// ENDS
+
+// ADD_TO_CART
+
+// action type
+export const ADD_TO_CART = 'ADD_TO_CART';
+// action creator
+export const renderAddToCart = () => { 
+    return{
+        type: ADD_TO_CART,
+    }
+};
+
+// ENDS
+
+
+// SIGN UP SIGN IN BUTTON
+
+// action type
+export const SIGN = 'SIGN';
+// action creator
+export const renderSign = () => { 
+    return{
+        type: SIGN,
     }
 };
 

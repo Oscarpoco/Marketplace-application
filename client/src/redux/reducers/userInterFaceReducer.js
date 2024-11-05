@@ -5,6 +5,8 @@ import
     IS_BANNER,
     IS_LOADER,
     PAY,
+    ADD_TO_CART,
+    SIGN,
  }
  from "../actions/userInterFaceActions.js";
 
@@ -14,6 +16,8 @@ const initialState = {
     isRenderingBanner: false,
     isLoading: false,
     pay: false,
+    addToCart: false,
+    sign: false,
     };
 // INITIAL STATE ENDS
 
@@ -49,6 +53,22 @@ export const userInterfaceReducer = (state = initialState, action) => {
                 pay: !state.pay
             };
         // PAY ENDS
+
+        // ADD_TO_CART
+        case ADD_TO_CART:
+            return{
+                ...state,
+                addToCart: !state.addToCart
+            };
+        // ADD_TO_CART ENDS
+
+        // SIGN
+        case SIGN:
+            return{
+                ...state,
+                sign: !state.sign
+            };
+        // SIGN ENDS
 
         // DEFAULT
         default:

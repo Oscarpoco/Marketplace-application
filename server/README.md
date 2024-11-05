@@ -1,4 +1,4 @@
-Here is a suggested README file for the backend (server) part of the CodeTribe Academy online marketplace project:
+
 
 <container>
 # CodeTribe Academy Online Marketplace (Server)

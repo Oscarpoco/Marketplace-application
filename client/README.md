@@ -5,6 +5,8 @@
 
 ## Project Overview
 CodeTribe Academy is launching a new online marketplace where users can list and browse products for sale. As a trainee, you are tasked with building the MVP (Minimum Viable Product) for this marketplace using **NodeJS** for the backend and **ReactJS** for the frontend.
+## The link for the project
+https://marketplace-application-nq5k.vercel.app/
 
 The project is divided into two main parts:
 

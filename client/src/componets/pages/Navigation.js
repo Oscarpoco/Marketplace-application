@@ -2,6 +2,9 @@ import React from 'react';
 
 // REDUX
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { renderLoader, renderSign } from '../../redux/actions/userInterFaceActions.js';
+import { logoutUser } from '../../redux/actions/authenticationAction.js';
 
 // STYLING
 import '../styling/Navigation.css';
@@ -14,9 +17,30 @@ import { SiWantedly } from "react-icons/si";
 
 export default function Navigation (){
 
-    // USE SELECTOR
-    const sign = useSelector((state)=> state.userInterface.sign);
-    // USE SELECTOR ENDS
+    const dispatch = useDispatch();
+
+    const user = useSelector((state)=> state.auth.authentication);
+
+    
+    // HANDLE FORM CLOSE
+    const handleCloseForm = () => {
+        dispatch(renderLoader(true));
+        setTimeout(() => {
+            dispatch(renderSign());
+            dispatch(renderLoader(false));
+        }, 3000);
+    };
+
+    // HANDLE FORM CLOSE ENDS
+    // HANDLE FORM CLOSE
+    const logout = () => {
+        dispatch(renderLoader(true));
+        setTimeout(() => {
+            dispatch(logoutUser());
+            dispatch(renderLoader(false));
+        }, 3000);
+    };
+    // HANDLE FORM CLOSE ENDS
 
 
   return (
@@ -45,9 +69,15 @@ export default function Navigation (){
 
             <div className='sign'>
 
-                <button className='sign-button'>Sign In</button>
-                <button className='sign-button' id='sign-button'>Sign Up</button>
-                
+                {!user ? 
+                <>
+                    <button className='sign-button' onClick={handleCloseForm}>Sign In</button>
+                    <button className='sign-button' id='sign-button' onClick={handleCloseForm}>Sign Up</button>
+                </>
+                :
+                <button className='sign-button' id='sign-button' onClick={logout}>Logout</button>
+                }
+
             </div>
         </div>
         {/* ENDS */}

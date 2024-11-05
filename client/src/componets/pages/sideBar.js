@@ -21,6 +21,8 @@ export default function SideBar (){
     // USE DISPATCH
     const dispatch = useDispatch();
     // ENDS
+
+    const user = useSelector((state)=> state.auth.authentication);
     
 
     // HANDLE OPENING PRODUCTS
@@ -57,17 +59,24 @@ export default function SideBar (){
                 <CiHeart className='SideBar-Icons'/>
             </div>
 
-            <div className='SideBar-Icons-wrapper'>
+            {user && (
+
+                <div className='SideBar-Icons-wrapper'>
                 <RiFunctionAddLine className='SideBar-Icons'/>
-            </div>
+                </div>
+            )}
+
 
             <div className='SideBar-Icons-wrapper' onClick={handleAddToCart}>
                 <FaCartArrowDown className='SideBar-Icons' style={{color: 'rgb(110, 163, 30)'}}/>
             </div>
 
-            <div className='SideBar-Icons-wrapper' id='SideBar-Icons-logout-wrapper'>
-                <FaRegUserCircle className='SideBar-Icons'/>
-            </div>
+            {user && (
+
+                <div className='SideBar-Icons-wrapper' id='SideBar-Icons-logout-wrapper'>
+                    <FaRegUserCircle className='SideBar-Icons'/>
+                </div>
+            )}
 
         </aside>
     </div>

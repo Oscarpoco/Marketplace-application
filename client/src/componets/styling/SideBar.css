@@ -31,6 +31,7 @@ aside
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease; 
 }
 
 .SideBar-Icons
@@ -45,4 +46,17 @@ aside
 {
     position: absolute;
     bottom: 30px;
+}
+
+
+.SideBar-Icons-wrapper:hover 
+{
+    background: rgba(255, 255, 255, 0.1); 
+    transform: translateY(-2px); 
+}
+
+.SideBar-Icons-wrapper:active
+{
+    background: var(--secondary-color);
+    border-radius: 50%;
 }

@@ -9,11 +9,13 @@ import Navigation from './componets/pages/Navigation.js';
 import ProductGround from './componets/pages/ProductGround.js';
 import SideBar from './componets/pages/sideBar.js';
 import Loader from './componets/pages/Loader.js';
+import SignForm from './componets/pages/SignForm.js';
 
 function App() {
 
   // USE SELECTOR
   const isLoading  = useSelector((state) => state.userInterface.isLoading);
+  const sign = useSelector((state)=> state.userInterface.sign);
   // ENDS
 
   return (
@@ -41,6 +43,8 @@ function App() {
 
         {/* POPUPS */}
         {isLoading && (<Loader/>)}
+
+        {sign && (<SignForm/>)}
         {/* POPUPS ENDS*/}
     </div>
   );

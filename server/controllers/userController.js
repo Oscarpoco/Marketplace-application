@@ -6,6 +6,7 @@ import GenerateToken from "../utils/index.js";
 export const createUser = async (req, res) => {
     try {
         const { email, password } = req.body;
+        onsole.log("Login attempt:", { email, password });
         const userExists = await User.findOne({ email });
 
         if (userExists) {
@@ -26,6 +27,7 @@ export const createUser = async (req, res) => {
 export const LoginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
+        console.log("Login attempt:", { email, password });
         const fetchUser = await User.findOne({ email });
 
         // Verify user exists and password is correct

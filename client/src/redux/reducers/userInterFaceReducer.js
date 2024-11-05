@@ -7,6 +7,7 @@ import
     PAY,
     ADD_TO_CART,
     SIGN,
+    SIGNUP,
  }
  from "../actions/userInterFaceActions.js";
 
@@ -18,6 +19,7 @@ const initialState = {
     pay: false,
     addToCart: false,
     sign: false,
+    signUp: false,
     };
 // INITIAL STATE ENDS
 
@@ -67,6 +69,14 @@ export const userInterfaceReducer = (state = initialState, action) => {
             return{
                 ...state,
                 sign: !state.sign
+            };
+        // SIGN ENDS
+
+        // SIGN
+        case SIGNUP:
+            return{
+                ...state,
+                signUp: !state.signUp
             };
         // SIGN ENDS
 

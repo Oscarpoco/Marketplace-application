@@ -62,3 +62,16 @@ export const renderSign = () => {
 };
 
 // ENDS
+
+// SIGN UP SIGN IN BUTTON
+
+// action type
+export const SIGNUP = 'SIGNUP';
+// action creator
+export const renderSignUp = () => { 
+    return{
+        type: SIGNUP,
+    }
+};
+
+// ENDS

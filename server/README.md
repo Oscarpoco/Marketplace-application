@@ -5,6 +5,8 @@
 
 ## Project Overview
 The backend (server) part of the CodeTribe Academy online marketplace project is built using **NodeJS** and **Express**. It provides a RESTful API that handles product listing, user authentication, and data storage.
+## The project link
+https://marketplace-application-4shx.vercel.app/
 
 ## Dependencies
 The project uses the following dependencies:

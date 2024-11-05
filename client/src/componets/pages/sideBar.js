@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 // COMPONENTS FROM USERINTERFACE ACTIONS
-import { renderBanner, renderLoader, renderAddToCart } from '../../redux/actions/userInterFaceActions.js';
+import { renderBanner, renderLoader, renderAddToCart, renderAddItem } from '../../redux/actions/userInterFaceActions.js';
 
 // STYLING
 import '../styling/SideBar.css';
@@ -29,14 +29,18 @@ export default function SideBar (){
     const [role, setRole] = useState(null);
 
     useEffect(() => {
-        const userRole = localStorage.getItem('role'); 
+        const userRole = localStorage.getItem('userToken'); 
         if (userRole) {
             setRole(userRole); 
         }
 
     }, []);
     
-    console.log('roler',role)
+    const token = localStorage.getItem('userToken');
+    const cache = localStorage.getItem('userId');
+    console.log('token: ', token)
+    console.log('userId: ', cache);
+
 
 
     // HANDLE OPENING PRODUCTS
@@ -45,6 +49,17 @@ export default function SideBar (){
         dispatch(renderLoader(true));
         setTimeout(()=>{
             dispatch(renderBanner());
+            dispatch(renderLoader(false));
+        }, 3000);
+        }
+    // ENDS
+
+    // HANDLE OPENING PRODUCTS
+    const handleOpenForm = () => {
+        
+        dispatch(renderLoader(true));
+        setTimeout(()=>{
+            dispatch(renderAddItem());
             dispatch(renderLoader(false));
         }, 3000);
         }
@@ -74,12 +89,9 @@ export default function SideBar (){
             </div>
 
                 {user && (
-                  
-                       
-                            <div className='SideBar-Icons-wrapper'>
-                                <RiFunctionAddLine className='SideBar-Icons' />
-                            </div>
-                      
+                    <div className='SideBar-Icons-wrapper' onClick={handleOpenForm}>
+                        <RiFunctionAddLine className='SideBar-Icons' />
+                    </div>
                 )}
 
 

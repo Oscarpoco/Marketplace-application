@@ -46,7 +46,7 @@ export default function Products (){
 
                     <div className='item-product'>
 
-                        <img src='item1.jpeg' alt='Product 1'/>
+                        <img src='item6.jpeg' alt='Product 1'/>
                         <div className='product-actions'>
                             <h5>Play Station 5</h5>
                             <div className='price'>

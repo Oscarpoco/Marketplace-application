@@ -38,48 +38,20 @@ const productSchema = new mongoose.Schema(
       },
     },
 
-    // CATEGORY
-    category: {
-      type: String,
-      trim: true,
-    },
-
-    // AUTHOR
-    Seller: {
-      name: {
-        type: String,
-        required: [true, "Seller name is required"],
-        trim: true,
-        validate: {
-          validator: (value) => !validator.isEmpty(value),
-          message: "Seller name cannot be empty",
-        },
-      },
-    },
-
     // IMAGES
     images: [
       {
         type: String,
-        validate: {
-          validator: (value) => validator.isURL(value),
-          message: "Each image must be a valid URL",
-        },
       },
     ],
 
-    // AVAILABILITY (QUANTITY)
-    availability: {
+    // (QUANTITY)
+    
       quantity: {
         type: Number,
         required: [true, "Quantity is required"],
         min: [0, "Quantity cannot be negative"],
       },
-      in_stock: {
-        type: Boolean,
-        default: true,
-      },
-    },
 
     // DATE CREATED
     date_created: {

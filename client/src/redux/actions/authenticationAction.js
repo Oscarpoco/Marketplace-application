@@ -50,6 +50,7 @@ export const loginUser = (email, password) => async (dispatch) => {
 
         // Store token in local storage
         localStorage.setItem('userToken', token);
+        localStorage.setItem('userId', user._id);
 
         dispatch(loginSuccess(token, user));
     } catch (error) {
@@ -68,8 +69,8 @@ export const signUpUser = (email, password, role) => async (dispatch) => {
 
         // Store token in local storage
         localStorage.setItem('userToken', token);
-        const userRole = user.role
-        localStorage.setItem('role', userRole);
+        localStorage.setItem('userId', user._id);
+
 
         dispatch(signUpSuccess(token, user));
     } catch (error) {

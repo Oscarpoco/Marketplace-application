@@ -75,3 +75,17 @@ export const renderSignUp = () => {
 };
 
 // ENDS
+
+
+// SIGN UP SIGN IN BUTTON
+
+// action type
+export const OPEN_ADD_ITEM = 'OPEN_ADD_ITEM';
+// action creator
+export const renderAddItem = () => { 
+    return{
+        type: OPEN_ADD_ITEM,
+    }
+};
+
+// ENDS

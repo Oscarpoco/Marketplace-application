@@ -35,8 +35,8 @@ const StyledWrapper = styled.div`
   }
 
   .loading-box {
-    width: 850px; 
-    height: 750px; 
+    width: 400px; 
+    height: 400px; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,13 +46,13 @@ const StyledWrapper = styled.div`
 
   .color {
     background-color: #eee;
-    border-radius: 5px;
+    border-radius: 40px;
   }
 
   .grid {
     width: 100%;
     display: grid;
-    grid-template-rows: 200px 200px 200px;
+    grid-template-rows: 100px 100px 100px;
     grid-template-areas:
       "l1 l2 l3"
       "l1 l2 l4"
@@ -62,15 +62,15 @@ const StyledWrapper = styled.div`
 
   .l1 {
     grid-area: l1;
-    animation: Loading 6s 0s infinite linear;
+    animation: Loading 3s 0s infinite linear;
   }
   .l2 {
     grid-area: l2;
-    animation: Loading 5s 1s infinite linear;
+    animation: Loading 2s 1s infinite linear;
   }
   .l3 {
     grid-area: l3;
-    animation: Loading 4s 2s infinite linear;
+    animation: Loading 2s 1s infinite linear;
   }
   .l4 {
     grid-area: l4;

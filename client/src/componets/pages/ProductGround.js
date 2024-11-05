@@ -8,6 +8,7 @@ import Banner from './Banner';
 import Products from './Products';
 import PayNow from "./PayNow";
 import Cart from "./Cart";
+import AddItem from "./AddProduct";
 
 export default function ProductGround (){
 
@@ -15,6 +16,7 @@ export default function ProductGround (){
   const isRenderingBanner = useSelector((state) => state.userInterface.isRenderingBanner);
   const pay = useSelector((state) => state.userInterface.pay);
   const addToCart = useSelector((state) => state.userInterface.addToCart);
+  const openAddItem = useSelector((state) => state.userInterface.openAddItem);
   // ENDS
   
   
@@ -26,6 +28,8 @@ export default function ProductGround (){
           {/* POPUP */}
 
             {pay && (<PayNow/>)}
+
+            {openAddItem && (<AddItem/>)}
 
             {/* {addToCart && (<Cart/>)} */}
             

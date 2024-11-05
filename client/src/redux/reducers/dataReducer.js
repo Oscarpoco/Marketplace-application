@@ -1,9 +1,12 @@
 // Action Types
-import { ADD_TO_CART, REMOVE_FROM_CART, CLEAR_CART } from "../actions/dataActions";
+import { ADD_TO_CART, REMOVE_FROM_CART, CLEAR_CART, ADD_PRODUCT_REQUEST, ADD_PRODUCT_SUCCESS, ADD_PRODUCT_FAILURE } from "../actions/dataActions";
 
 // Initial State
 const initialState = {
     items: [],
+    loading: false,
+    product: null,
+    error: null,
 };
 
 // Reducer
@@ -26,6 +29,15 @@ const cartReducer = (state = initialState, action) => {
                 ...state,
                 items: [],
             };
+
+            case ADD_PRODUCT_REQUEST:
+                return { ...state, loading: true, error: null };
+
+            case ADD_PRODUCT_SUCCESS:
+                return { ...state, loading: false, product: action.payload, error: null };
+
+            case ADD_PRODUCT_FAILURE:
+                return { ...state, loading: false, error: action.payload };
             
         default:
             return state;

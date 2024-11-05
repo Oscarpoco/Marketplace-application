@@ -8,6 +8,7 @@ import
     ADD_TO_CART,
     SIGN,
     SIGNUP,
+    OPEN_ADD_ITEM
  }
  from "../actions/userInterFaceActions.js";
 
@@ -20,6 +21,7 @@ const initialState = {
     addToCart: false,
     sign: false,
     signUp: false,
+    openAddItem: false
     };
 // INITIAL STATE ENDS
 
@@ -27,9 +29,6 @@ const initialState = {
 
 // REDUCER
 export const userInterfaceReducer = (state = initialState, action) => {
-
-    console.log("Current State:", state); // Log the current state
-    console.log("Action Dispatched:", action);
     switch (action.type) {
 
         // BANNER
@@ -79,6 +78,14 @@ export const userInterfaceReducer = (state = initialState, action) => {
                 signUp: !state.signUp
             };
         // SIGN ENDS
+
+        // OPEN_ADD_ITEM
+        case OPEN_ADD_ITEM:
+            return{
+                ...state,
+                openAddItem: !state.openAddItem
+            };
+        // OPEN_ADD_ITEM ENDS
 
         // DEFAULT
         default:
